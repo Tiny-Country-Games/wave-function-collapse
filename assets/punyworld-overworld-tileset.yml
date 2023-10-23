@@ -1,0 +1,168 @@
+source: punyworld-overworld-tileset.png
+tileWidth: 16
+tileHeight: 16
+tiles:
+  plain_grass:
+    weight: 1
+    draw:
+      - r: 0
+        c: 0
+    neighbors:
+      north:
+        - plain_grass
+        - water_corner_sw
+        - water_edge_s
+        - water_corner_se
+      south:
+        - plain_grass
+        - water_corner_nw
+        - water_edge_n
+        - water_corner_ne
+      east:
+        - plain_grass
+        - water_corner_nw
+        - water_edge_w
+        - water_corner_sw
+      west:
+        - plain_grass
+        - water_corner_ne
+        - water_edge_e
+        - water_corner_se
+  water_corner_nw:
+    weight: 1
+    draw:
+      - r: 10
+        c: 7
+    neighbors:
+      north:
+        - plain_grass
+      south:
+        - water_edge_w
+      east:
+        - water_edge_n
+      west:
+        - plain_grass
+  water_edge_n:
+    weight: 1
+    draw:
+      - r: 10
+        c: 8
+    neighbors:
+      north:
+        - plain_grass
+      south:
+        - water_center
+      east:
+        - water_edge_n
+        - water_corner_ne
+      west:
+        - water_edge_n
+        - water_corner_nw
+  water_corner_ne:
+    weight: 1
+    draw:
+      - r: 10
+        c: 9
+    neighbors:
+      north:
+        - plain_grass
+      south:
+        - water_edge_e
+      east:
+        - plain_grass
+      west:
+        - water_edge_n
+  water_edge_w:
+    weight: 1
+    draw:
+      - r: 11
+        c: 7
+    neighbors:
+      north:
+        - water_edge_w
+        - water_corner_nw
+      south:
+        - water_edge_w
+        - water_corner_sw
+      east:
+        - water_center
+      west:
+        - plain_grass
+  water_center:
+    weight: 1
+    draw:
+      - r: 11
+        c: 8
+    neighbors:
+      north:
+        - water_center
+        - water_edge_n
+      south:
+        - water_center
+        - water_edge_s
+      east:
+        - water_center
+        - water_edge_e
+      west:
+        - water_center
+        - water_edge_w
+  water_edge_e:
+    weight: 1
+    draw:
+      - r: 11
+        c: 9
+    neighbors:
+      north:
+        - water_edge_e
+        - water_corner_ne
+      south:
+        - water_edge_e
+        - water_corner_se
+      east:
+        - plain_grass
+      west:
+        - water_center
+  water_corner_sw:
+    weight: 1
+    draw:
+      - r: 12
+        c: 7
+    neighbors:
+      north:
+        - water_edge_w
+      south:
+        - plain_grass
+      east:
+        - water_edge_s
+      west:
+        - plain_grass
+  water_edge_s:
+    weight: 1
+    draw:
+      - r: 12
+        c: 8
+    neighbors:
+      north:
+        - water_center
+      south:
+        - plain_grass
+      east:
+        - water_edge_s
+        - water_corner_se
+      west:
+        - water_edge_s
+        - water_corner_sw
+  water_corner_se:
+    weight: 1
+    draw:
+      - r: 12
+        c: 9
+    neighbors:
+      north:
+        - water_edge_e
+      south:
+        - plain_grass
+      east:
+        - plain_grass
+      west:
+        - water_edge_s
