@@ -577,6 +577,8 @@ tiles:
       south:
         - water_center
         - water_edge_s
+        - water_internal_corner_sw
+        - water_internal_corner_se
       east:
         - water_edge_n
         - water_corner_ne
@@ -584,6 +586,7 @@ tiles:
       west:
         - water_edge_n
         - water_corner_nw
+        - water_internal_corner_ne
   water_corner_ne:
     weight: 1
     draw:
@@ -603,6 +606,7 @@ tiles:
       south:
         - water_edge_e
         - water_corner_se
+        - water_internal_corner_ne
       east:
         - grass_00
         - grass_01
@@ -616,6 +620,7 @@ tiles:
       west:
         - water_edge_n
         - water_corner_nw
+        - water_internal_corner_ne
   water_edge_w:
     weight: 1
     draw:
@@ -625,6 +630,7 @@ tiles:
       north:
         - water_edge_w
         - water_corner_nw
+        - water_internal_corner_sw
       south:
         - water_edge_w
         - water_corner_sw
@@ -632,6 +638,8 @@ tiles:
       east:
         - water_center
         - water_edge_e
+        - water_internal_corner_ne
+        - water_internal_corner_se
       west:
         - grass_00
         - grass_01
@@ -652,16 +660,22 @@ tiles:
         - water_center
         - water_edge_n
         - water_internal_corner_nw
+        - water_internal_corner_ne
       south:
         - water_center
         - water_edge_s
         - water_internal_corner_nw
+        - water_internal_corner_sw
+        - water_internal_corner_se
       east:
         - water_center
         - water_edge_e
+        - water_internal_corner_ne
+        - water_internal_corner_se
       west:
         - water_center
         - water_edge_w
+        - water_internal_corner_sw
   water_edge_e:
     weight: 1
     draw:
@@ -671,9 +685,11 @@ tiles:
       north:
         - water_edge_e
         - water_corner_ne
+        - water_internal_corner_se
       south:
         - water_edge_e
         - water_corner_se
+        - water_internal_corner_ne
       east:
         - grass_00
         - grass_01
@@ -688,6 +704,7 @@ tiles:
         - water_center
         - water_edge_w
         - water_internal_corner_nw
+        - water_internal_corner_sw
   water_corner_sw:
     weight: 1
     draw:
@@ -697,6 +714,7 @@ tiles:
       north:
         - water_edge_w
         - water_corner_nw
+        - water_internal_corner_sw
       south:
         - grass_00
         - grass_01
@@ -710,6 +728,7 @@ tiles:
       east:
         - water_edge_s
         - water_corner_se
+        - water_internal_corner_sw
       west:
         - grass_00
         - grass_01
@@ -730,6 +749,7 @@ tiles:
         - water_center
         - water_edge_n
         - water_internal_corner_nw
+        - water_internal_corner_ne
       south:
         - grass_00
         - grass_01
@@ -743,9 +763,11 @@ tiles:
       east:
         - water_edge_s
         - water_corner_se
+        - water_internal_corner_sw
       west:
         - water_edge_s
         - water_corner_sw
+        - water_internal_corner_se
   water_corner_se:
     weight: 1
     draw:
@@ -755,6 +777,7 @@ tiles:
       north:
         - water_edge_e
         - water_corner_ne
+        - water_internal_corner_se
       south:
         - grass_00
         - grass_01
@@ -778,6 +801,7 @@ tiles:
       west:
         - water_edge_s
         - water_corner_sw
+        - water_internal_corner_se
   water_internal_corner_nw:
     weight: 1
     draw:
@@ -790,9 +814,80 @@ tiles:
       south:
         - water_center
         - water_edge_s
+        - water_internal_corner_sw
+        - water_internal_corner_se
       west:
         - water_edge_n
         - water_corner_nw
       east:
         - water_center
         - water_edge_e
+        - water_internal_corner_ne
+        - water_internal_corner_se
+  water_internal_corner_ne:
+    weight: 1
+    draw:
+      - r: 10
+        c: 11
+    neighbors:
+      north:
+        - water_edge_e
+        - water_corner_ne
+      south:
+        - water_center
+        - water_edge_s
+        - water_internal_corner_sw
+        - water_internal_corner_se
+      west:
+        - water_center
+        - water_edge_w
+        - water_internal_corner_nw
+        - water_internal_corner_sw
+      east:
+        - water_corner_ne
+        - water_edge_n
+  water_internal_corner_sw:
+    weight: 1
+    draw:
+      - r: 11
+        c: 10
+    neighbors:
+      north:
+        - water_center
+        - water_edge_n
+        - water_internal_corner_nw
+        - water_internal_corner_ne
+      south:
+        - water_edge_w
+        - water_corner_sw
+      west:
+        - water_edge_s
+        - water_corner_sw
+      east:
+        - water_center
+        - water_edge_e
+        - water_internal_corner_ne
+        - water_internal_corner_se
+  water_internal_corner_se:
+    weight: 1
+    draw:
+      - r: 11
+        c: 11
+    neighbors:
+      north:
+        - water_center
+        - water_edge_n
+        - water_internal_corner_nw
+        - water_internal_corner_ne
+      south:
+        - water_edge_e
+        - water_corner_se
+      west:
+        - water_center
+        - water_edge_w
+        - water_internal_corner_nw
+        - water_internal_corner_sw
+      east:
+        - water_edge_s
+        - water_corner_se
+
