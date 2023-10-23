@@ -12,10 +12,18 @@ public class World {
 
     private final Tileset tileset;
     private final Tile[][] tiles;
+    private final int width;
+    private final int height;
 
     public World(final Tileset tileset, final int width, final int height) {
         this.tileset = tileset;
         this.tiles = new Tile[height][width];
+        this.width = width;
+        this.height = height;
+        reset();
+    }
+
+    public void reset() {
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
                 tiles[row][col] = new Tile(tileset, row, col);
@@ -29,7 +37,6 @@ public class World {
                 if (col < width - 1) tiles[row][col].addNeighbor(Direction.EAST, tiles[row][col + 1]);
             }
         }
-        MathUtils.random.setSeed(100);
     }
 
     public void draw(final SpriteBatch batch) {

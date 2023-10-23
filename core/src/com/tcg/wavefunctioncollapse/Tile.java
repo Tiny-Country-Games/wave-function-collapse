@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.tcg.wavefunctioncollapse.tiledata.TileDefinition;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Tile {
 
@@ -63,46 +64,22 @@ public class Tile {
 
     public boolean constrain(Set<String> neighborPossibilities, Direction direction) {
         if (this.entropy() <= 0) return false;
-        boolean constrained = false;
-        final Set<String> possibleConnectors = new HashSet<>();
-        for (final String possibility : this.possibilities.keySet()) {
-            final TileDefinition tile = this.tileset.getTile(possibility);
-            possibleConnectors.addAll(tile.neighbors.directionNeighbors(direction.opposite()));
-        }
-        final Set<String> allowedConnectors = new HashSet<>();
-        for (final String neighborPossibility : neighborPossibilities) {
-            final TileDefinition tile = this.tileset.getTile(neighborPossibility);
-            allowedConnectors.addAll(tile.neighbors.directionNeighbors(direction));
-        }
-        possibleConnectors.retainAll(allowedConnectors);
-        final Set<String> keysToRemove = new HashSet<>();
-        for (final String possibleKey : this.possibilities.keySet()) {
-            if (!possibleConnectors.contains(possibleKey)) {
-                keysToRemove.add(possibleKey);
-                constrained = true;
+        final Set<String> allPossibilities = new HashSet<>(this.tileset.getPossibilities().keySet());
+        for (final Direction dir : this.getDirections()) {
+            final Tile neighbor = this.getNeighbor(dir);
+            final Set<String> neighborConnectors = new HashSet<>();
+            for (final String neighborPossibility : neighbor.getPossibilities()) {
+                final TileDefinition possibility = this.tileset.getTile(neighborPossibility);
+                neighborConnectors.addAll(possibility.neighbors.directionNeighbors(dir.opposite()));
             }
+            allPossibilities.retainAll(neighborConnectors);
         }
-        final Map<String, TileDefinition> allPosibilities = this.tileset.getPossibilities();
-//        final Set<String> connectors = new HashSet<>();
-//        for (final String neighborPossibility : neighborPossibilities) {
-//            connectors.addAll(this.tileset.getTile(neighborPossibility).neighbors.directionNeighbors(direction));
-//        }
-//        final Direction opposite = direction.opposite();
-//        final Set<String> previousPossibleKeys = this.possibilities.keySet();
-//        final Set<String> keysToRemove = new HashSet<>();
-//        for (final String possibleKey : previousPossibleKeys) {
-//            final TileDefinition tile = this.tileset.getTile(possibleKey);
-//            final Set<String> possibleConnectors = tile.neighbors.directionNeighbors(opposite);
-//            if (Collections.disjoint(possibleConnectors, connectors)) {
-//                keysToRemove.add(possibleKey);
-//                constrained = true;
-//            }
-//
-//        }
-        for (final String keyToRemove : keysToRemove) {
-            this.possibilities.remove(keyToRemove);
-        }
-        return constrained;
+        final Set<String> possibilitiesToRemove = this.possibilities.keySet()
+                .stream()
+                .filter(key -> !allPossibilities.contains(key))
+                .collect(Collectors.toSet());
+        possibilitiesToRemove.forEach(this.possibilities::remove);
+        return !possibilitiesToRemove.isEmpty();
     }
 
 }

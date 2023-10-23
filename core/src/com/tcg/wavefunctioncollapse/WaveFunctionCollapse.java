@@ -16,18 +16,29 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
 
     private WaveFunctionCollapseAlgorithm algorithm;
 
+    private boolean stepMode;
+
     @Override
     public void create() {
         batch = new SpriteBatch();
-        viewport = new FitViewport(320, 320);
-        algorithm = new WaveFunctionCollapseAlgorithm();
+        final int tilesWidth = 120;
+        final int tilesHeight = 67;
+        viewport = new FitViewport(16 * tilesWidth, 16 * tilesHeight);
+        algorithm = new WaveFunctionCollapseAlgorithm(tilesWidth, tilesHeight);
+        this.stepMode = true;
     }
 
     @Override
     public void render() {
         ScreenUtils.clear(Color.BLACK);
 
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) ) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            algorithm.reset();
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ) {
+            this.stepMode = !this.stepMode;
+        }
+        if (!this.stepMode || Gdx.input.isKeyJustPressed(Input.Keys.SPACE) ) {
             algorithm.step();
         }
 

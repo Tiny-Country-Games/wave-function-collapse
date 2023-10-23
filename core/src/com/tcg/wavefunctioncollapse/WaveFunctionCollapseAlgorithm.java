@@ -9,13 +9,18 @@ public class WaveFunctionCollapseAlgorithm implements Disposable {
     private final Tileset tileset;
     private final World world;
 
-    public WaveFunctionCollapseAlgorithm() {
+
+    public WaveFunctionCollapseAlgorithm(int tilesWidth, int tilesHeight) {
         this.tileset = new Tileset("punyworld-overworld-tileset.yml");
-        this.world = new World(tileset, 3, 3);
+        this.world = new World(tileset, tilesWidth, tilesHeight);
     }
 
     public void step() {
         this.world.waveFunctionCollapse();
+    }
+
+    public void reset() {
+        this.world.reset();
     }
 
     public void draw(final SpriteBatch batch) {
