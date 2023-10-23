@@ -542,8 +542,10 @@ tiles:
         - grass_22
       south:
         - water_edge_w
+        - water_corner_sw
       east:
         - water_edge_n
+        - water_corner_ne
       west:
         - grass_00
         - grass_01
@@ -572,6 +574,7 @@ tiles:
         - grass_22
       south:
         - water_center
+        - water_edge_s
       east:
         - water_edge_n
         - water_corner_ne
@@ -596,6 +599,7 @@ tiles:
         - grass_22
       south:
         - water_edge_e
+        - water_corner_se
       east:
         - grass_00
         - grass_01
@@ -608,6 +612,7 @@ tiles:
         - grass_22
       west:
         - water_edge_n
+        - water_corner_nw
   water_edge_w:
     weight: 1
     draw:
@@ -622,6 +627,7 @@ tiles:
         - water_corner_sw
       east:
         - water_center
+        - water_edge_e
       west:
         - grass_00
         - grass_01
@@ -674,6 +680,7 @@ tiles:
         - grass_22
       west:
         - water_center
+        - water_edge_w
   water_corner_sw:
     weight: 1
     draw:
@@ -682,6 +689,7 @@ tiles:
     neighbors:
       north:
         - water_edge_w
+        - water_corner_nw
       south:
         - grass_00
         - grass_01
@@ -694,6 +702,7 @@ tiles:
         - grass_22
       east:
         - water_edge_s
+        - water_corner_se
       west:
         - grass_00
         - grass_01
@@ -712,6 +721,7 @@ tiles:
     neighbors:
       north:
         - water_center
+        - water_edge_n
       south:
         - grass_00
         - grass_01
@@ -736,6 +746,7 @@ tiles:
     neighbors:
       north:
         - water_edge_e
+        - water_corner_ne
       south:
         - grass_00
         - grass_01
@@ -758,3 +769,4 @@ tiles:
         - grass_22
       west:
         - water_edge_s
+        - water_corner_sw
