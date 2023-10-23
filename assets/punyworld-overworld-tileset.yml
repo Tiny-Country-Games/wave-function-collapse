@@ -3,7 +3,7 @@ tileWidth: 16
 tileHeight: 16
 tiles:
   grass_00:
-    weight: 10
+    weight: 5
     draw:
       - r: 0
         c: 0
@@ -525,7 +525,7 @@ tiles:
         - water_edge_e
         - water_corner_se
   water_corner_nw:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 10
         c: 7
@@ -559,7 +559,7 @@ tiles:
         - grass_21
         - grass_22
   water_edge_n:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 10
         c: 8
@@ -588,7 +588,7 @@ tiles:
         - water_corner_nw
         - water_internal_corner_ne
   water_corner_ne:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 10
         c: 9
@@ -622,7 +622,7 @@ tiles:
         - water_corner_nw
         - water_internal_corner_ne
   water_edge_w:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 11
         c: 7
@@ -651,7 +651,7 @@ tiles:
         - grass_21
         - grass_22
   water_center:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 11
         c: 8
@@ -677,7 +677,7 @@ tiles:
         - water_edge_w
         - water_internal_corner_sw
   water_edge_e:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 11
         c: 9
@@ -706,7 +706,7 @@ tiles:
         - water_internal_corner_nw
         - water_internal_corner_sw
   water_corner_sw:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 12
         c: 7
@@ -740,7 +740,7 @@ tiles:
         - grass_21
         - grass_22
   water_edge_s:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 12
         c: 8
@@ -769,7 +769,7 @@ tiles:
         - water_corner_sw
         - water_internal_corner_se
   water_corner_se:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 12
         c: 9
@@ -803,7 +803,7 @@ tiles:
         - water_corner_sw
         - water_internal_corner_se
   water_internal_corner_nw:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 10
         c: 10
@@ -825,7 +825,7 @@ tiles:
         - water_internal_corner_ne
         - water_internal_corner_se
   water_internal_corner_ne:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 10
         c: 11
@@ -847,7 +847,7 @@ tiles:
         - water_corner_ne
         - water_edge_n
   water_internal_corner_sw:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 11
         c: 10
@@ -869,7 +869,7 @@ tiles:
         - water_internal_corner_ne
         - water_internal_corner_se
   water_internal_corner_se:
-    weight: 1
+    weight: 0.125
     draw:
       - r: 11
         c: 11
