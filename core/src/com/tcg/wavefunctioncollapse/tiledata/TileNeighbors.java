@@ -4,7 +4,6 @@ import com.tcg.wavefunctioncollapse.Direction;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class TileNeighbors {
@@ -35,10 +34,6 @@ public class TileNeighbors {
             default:
                 throw new IllegalStateException("Unknown direction: " + this);
         }
-    }
-
-    public boolean isAllowed(final Direction direction, final String tileKey) {
-        return this.directionNeighbors(direction).contains(Objects.requireNonNull(tileKey));
     }
 
 }

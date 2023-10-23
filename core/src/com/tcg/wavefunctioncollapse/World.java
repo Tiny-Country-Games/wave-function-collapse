@@ -90,12 +90,11 @@ public class World {
 
         while (!stack.isEmpty()) {
             final Tile tile = stack.pop();
-            final Set<String> tilePossibilities = tile.getPossibilities();
             final Set<Direction> directions = tile.getDirections();
             for (final Direction direction : directions) {
                 final Tile neighbor = tile.getNeighbor(direction);
                 if (neighbor.entropy() != 0) {
-                    boolean constrained = neighbor.constrain(tilePossibilities, direction);
+                    boolean constrained = neighbor.constrain();
                     if (constrained) stack.push(neighbor);
                 }
             }

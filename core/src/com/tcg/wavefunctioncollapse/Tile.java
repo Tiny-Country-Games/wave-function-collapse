@@ -3,7 +3,10 @@ package com.tcg.wavefunctioncollapse;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.tcg.wavefunctioncollapse.tiledata.TileDefinition;
 
-import java.util.*;
+import java.util.EnumMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Tile {
@@ -62,7 +65,7 @@ public class Tile {
         tileset.renderTile(batch, tileKey, col * tileset.tileWidth, row * tileset.tileHeight);
     }
 
-    public boolean constrain(Set<String> neighborPossibilities, Direction direction) {
+    public boolean constrain() {
         if (this.entropy() <= 0) return false;
         final Set<String> allPossibilities = new HashSet<>(this.tileset.getPossibilities().keySet());
         for (final Direction dir : this.getDirections()) {
