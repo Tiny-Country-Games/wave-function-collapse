@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -17,6 +18,8 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
     private WaveFunctionCollapseAlgorithm algorithm;
 
     private boolean stepMode;
+
+    private int iterationsPerStep = 1;
 
     @Override
     public void create() {
@@ -38,8 +41,16 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ) {
             this.stepMode = !this.stepMode;
         }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) ) {
+            this.iterationsPerStep++;
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) ) {
+            this.iterationsPerStep = Math.max(1, this.iterationsPerStep - 1);
+        }
         if (!this.stepMode || Gdx.input.isKeyJustPressed(Input.Keys.SPACE) ) {
-            algorithm.step();
+            for (int i = 0; i < iterationsPerStep; i++) {
+                algorithm.step();
+            }
         }
 
         batch.begin();
