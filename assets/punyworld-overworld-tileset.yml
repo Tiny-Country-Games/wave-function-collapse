@@ -3,7 +3,7 @@ tileWidth: 16
 tileHeight: 16
 tiles:
   grass_00:
-    weight: 4
+    weight: 10
     draw:
       - r: 0
         c: 0
@@ -543,9 +543,11 @@ tiles:
       south:
         - water_edge_w
         - water_corner_sw
+        - water_internal_corner_nw
       east:
         - water_edge_n
         - water_corner_ne
+        - water_internal_corner_nw
       west:
         - grass_00
         - grass_01
@@ -578,6 +580,7 @@ tiles:
       east:
         - water_edge_n
         - water_corner_ne
+        - water_internal_corner_nw
       west:
         - water_edge_n
         - water_corner_nw
@@ -625,6 +628,7 @@ tiles:
       south:
         - water_edge_w
         - water_corner_sw
+        - water_internal_corner_nw
       east:
         - water_center
         - water_edge_e
@@ -647,9 +651,11 @@ tiles:
       north:
         - water_center
         - water_edge_n
+        - water_internal_corner_nw
       south:
         - water_center
         - water_edge_s
+        - water_internal_corner_nw
       east:
         - water_center
         - water_edge_e
@@ -681,6 +687,7 @@ tiles:
       west:
         - water_center
         - water_edge_w
+        - water_internal_corner_nw
   water_corner_sw:
     weight: 1
     draw:
@@ -722,6 +729,7 @@ tiles:
       north:
         - water_center
         - water_edge_n
+        - water_internal_corner_nw
       south:
         - grass_00
         - grass_01
@@ -770,3 +778,21 @@ tiles:
       west:
         - water_edge_s
         - water_corner_sw
+  water_internal_corner_nw:
+    weight: 1
+    draw:
+      - r: 10
+        c: 10
+    neighbors:
+      north:
+        - water_edge_w
+        - water_corner_nw
+      south:
+        - water_center
+        - water_edge_s
+      west:
+        - water_edge_n
+        - water_corner_nw
+      east:
+        - water_center
+        - water_edge_e
