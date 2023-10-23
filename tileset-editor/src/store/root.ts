@@ -3,11 +3,13 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 type RootState = {
     tileset: TileSet | null;
     tileData: string[][] | null;
+    selectedTile: string | null;
 };
 
 const initialState: RootState = {
     tileset: null,
     tileData: null,
+    selectedTile: null,
 };
 
 export const rootSlice = createSlice({
@@ -25,6 +27,9 @@ export const rootSlice = createSlice({
         },
         setTileData: (state, action: PayloadAction<string[][]>) => {
             state.tileData = action.payload.map(row => [...row]);
+        },
+        setSelectedTile: (state, action: PayloadAction<string | null>) => {
+            state.selectedTile = action.payload;
         },
     },
 });
