@@ -1,14 +1,27 @@
 import React from 'react';
-import {Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
+import {useAppSelector} from "../../hooks/redux";
+import CreateTilesetRoutes from "../../routers/CreateTilesetRoutes/CreateTilesetRoutes";
+import MainRoutes from "../../routers/MainRoutes/MainRoutes";
 
-function App() {
+const App = () => {
+    const tileData = useAppSelector(state => state.root.tileData);
+    const tileset = useAppSelector(state => state.root.tileset);
+
+    const router = (() => {
+        if (tileData === null || tileset === null) return <CreateTilesetRoutes/>;
+        return <MainRoutes/>
+    })();
+
     return (
-        <Container>
+        <Container fluid>
             <Row>
-
+                <Col>
+                    {router}
+                </Col>
             </Row>
         </Container>
     );
-}
+};
 
 export default App;
