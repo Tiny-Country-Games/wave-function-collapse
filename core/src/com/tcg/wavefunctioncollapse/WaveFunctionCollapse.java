@@ -48,10 +48,14 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
             this.iterationsPerStep = Math.max(1, this.iterationsPerStep - 1);
         }
         if (!this.stepMode || Gdx.input.isKeyJustPressed(Input.Keys.SPACE) ) {
-            for (int i = 0; i < iterationsPerStep; i++) {
-                algorithm.step();
+            boolean isDone = false;
+            for (int i = 0; i < iterationsPerStep && !isDone; i++) {
+                int result = algorithm.step();
+                isDone = result == 0;
             }
         }
+
+        Gdx.graphics.setTitle("Wave Function Collapse - Iterations per step: " + this.iterationsPerStep);
 
         batch.begin();
         batch.setProjectionMatrix(viewport.getCamera().combined);

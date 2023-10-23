@@ -15,8 +15,8 @@ public class WaveFunctionCollapseAlgorithm implements Disposable {
         this.world = new World(tileset, tilesWidth, tilesHeight);
     }
 
-    public void step() {
-        this.world.waveFunctionCollapse();
+    public int step() {
+        return this.world.waveFunctionCollapse();
     }
 
     public void reset() {
