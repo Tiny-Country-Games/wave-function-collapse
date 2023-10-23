@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -21,6 +20,8 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
 
     private int iterationsPerStep = 1;
 
+    private Recorder recorder;
+
     @Override
     public void create() {
         batch = new SpriteBatch();
@@ -29,6 +30,7 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
         viewport = new FitViewport(16 * tilesWidth, 16 * tilesHeight);
         algorithm = new WaveFunctionCollapseAlgorithm(tilesWidth, tilesHeight);
         this.stepMode = true;
+        this.recorder = new Recorder();
     }
 
     @Override
@@ -38,29 +40,43 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             algorithm.reset();
         }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             this.stepMode = !this.stepMode;
         }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) ) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             this.iterationsPerStep++;
         }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) ) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             this.iterationsPerStep = Math.max(1, this.iterationsPerStep - 1);
         }
-        if (!this.stepMode || Gdx.input.isKeyJustPressed(Input.Keys.SPACE) ) {
+        if (!this.stepMode || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             boolean isDone = false;
             for (int i = 0; i < iterationsPerStep && !isDone; i++) {
                 int result = algorithm.step();
                 isDone = result == 0;
             }
+            if (isDone && !this.recorder.isScheduledToStop()) {
+                this.recorder.scheduleStop(25);
+            }
         }
 
-        Gdx.graphics.setTitle("Wave Function Collapse - Iterations per step: " + this.iterationsPerStep);
+        if (Gdx.input.isKeyJustPressed(Input.Keys.R)) {
+            if (recorder.isRecording()) {
+                recorder.stop();
+            } else {
+                this.stepMode = false;
+                algorithm.reset();
+                recorder.start();
+            }
+        }
+
+        Gdx.graphics.setTitle("Wave Function Collapse - Iterations per step: " + this.iterationsPerStep + (this.recorder.isRecording() ? " - Recording" : ""));
 
         batch.begin();
         batch.setProjectionMatrix(viewport.getCamera().combined);
         algorithm.draw(batch);
         batch.end();
+        recorder.record();
     }
 
     @Override
