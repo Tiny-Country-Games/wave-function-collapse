@@ -31,7 +31,7 @@ const TilePreview = (props: TilePreviewProps) => {
 
     useEffect(() => {
         loadTile().then();
-    }, [tile])
+    }, [tile, tileset])
 
     if (!tileset.tiles[tile]) return null;
 

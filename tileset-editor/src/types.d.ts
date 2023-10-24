@@ -1,9 +1,6 @@
 type Tile = {
     weight: number;
-    draw: {
-        c: number;
-        r: number;
-    }[];
+    draw: RowCol[];
     neighbors: {
         north: string[];
         south: string[];
@@ -11,6 +8,12 @@ type Tile = {
         west: string[];
     };
 };
+
+type RowCol = {
+    c: number;
+    r: number;
+};
+
 type TileSet = {
     source: string;
     tileWidth: number;

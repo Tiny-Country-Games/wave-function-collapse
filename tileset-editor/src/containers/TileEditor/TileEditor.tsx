@@ -1,15 +1,24 @@
-import {useAppSelector} from "../../hooks/redux";
-import {Card, Col, ListGroup, ListGroupItem, Row} from "react-bootstrap";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {Card, Col, Row} from "react-bootstrap";
 import React from "react";
 import TilePreview from "../../components/TilePreview/TilePreview";
+import TileLayers from "../../components/TileLayers/TileLayers";
+import {rootStateActions} from "../../store/root";
 
 const TileEditor = () => {
     const tileset = useAppSelector(state => state.root.tileset!)
     const selectedTile = useAppSelector(state => state.root.selectedTile);
+    const dispatch = useAppDispatch();
 
     if (selectedTile == null) return null;
 
     const selectedTileData = tileset.tiles[selectedTile];
+
+    const onTileLayersChange = (layers: RowCol[]) => {
+        const updatedTileset = JSON.parse(JSON.stringify(tileset));
+        updatedTileset.tiles[selectedTile].draw = layers;
+        dispatch(rootStateActions.setTileset(updatedTileset));
+    }
 
     return (
         <Col>
@@ -24,13 +33,10 @@ const TileEditor = () => {
                                     <TilePreview tile={selectedTile} className={'w-100'}/>
                                 </Col>
                                 <Col xs={6}>
-                                    <ListGroup>
-                                        {selectedTileData.draw.map(({r, c}, index) => (
-                                            <ListGroupItem key={index}>
-                                                ({c}, {r})
-                                            </ListGroupItem>
-                                        ))}
-                                    </ListGroup>
+                                    <TileLayers
+                                        layers={selectedTileData.draw}
+                                        onChange={onTileLayersChange}
+                                    />
                                 </Col>
                             </Row>
                         </Card.Body>
