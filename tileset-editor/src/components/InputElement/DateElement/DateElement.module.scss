@@ -1,0 +1,17 @@
+@media (max-width: 576px) {
+  .DateSelectorPopover {
+    min-width: 90%;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 577px) {
+  .DateSelectorPopover {
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+.DateSelectorPopover {
+
+}
