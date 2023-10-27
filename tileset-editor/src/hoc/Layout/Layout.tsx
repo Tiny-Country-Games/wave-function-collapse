@@ -39,7 +39,7 @@ const Layout = ({children}: LayoutProps) => {
                 </Row>
                 <TileSelector/>
             </Col>
-            <Col xs={{span: 12, order: 1}} lg={{span: 9, order: 2}}>
+            <Col xs={{span: 12, order: 1}} lg={{span: 9, order: 2}} className={'mb-2 mb-lg-0'}>
                 <Row>
                     {children}
                 </Row>

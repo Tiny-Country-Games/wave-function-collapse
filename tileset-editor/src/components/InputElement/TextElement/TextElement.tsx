@@ -17,6 +17,7 @@ const TextElement = (props: TextElementProps) => {
         },
         onChange,
         readonly,
+        onBlur,
     } = props;
     return (
         <Form.Control
@@ -28,6 +29,7 @@ const TextElement = (props: TextElementProps) => {
             isValid={valid && !hideValid}
             readOnly={readonly}
             disabled={readonly}
+            onBlur={onBlur}
         />
     );
 };
