@@ -19,6 +19,8 @@ const TileEditor = () => {
 
     const selectedTileData = tileset.tiles[selectedTile];
 
+    if (!selectedTileData) return null;
+
     const onTileLayersChange = (layers: RowCol[]) => {
         const updatedTileset = JSON.parse(JSON.stringify(tileset));
         updatedTileset.tiles[selectedTile].draw = layers;

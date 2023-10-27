@@ -58,4 +58,29 @@ export namespace Forms {
 
 export namespace Validators {
     export const requiredText = (value: string) => value.trim() !== '';
+
+    export const requiredNumber = (value: string) => !isNaN(Number(value.trim().toLowerCase()));
+
+    export const minNumberValue = (minValue: number, inclusive: boolean = true) => {
+        return (value: string) => {
+            const numValue = Number(value.trim().toLowerCase());
+            if (isNaN(numValue)) return false;
+            if (inclusive) return numValue >= minValue;
+            return numValue > minValue;
+        };
+    }
+
+    export const combineValidators = <V>(...validators: ((value: V) => boolean)[]) => {
+        return (value: V) => {
+            for (const validator of validators) {
+                if (!validator(value)) return false;
+            }
+            return true;
+        };
+    };
+
+}
+
+export namespace Filters {
+    export const lowerCaseNoSpace = (value: string) => value.toLowerCase().replaceAll(/\s+/g, '_');
 }
