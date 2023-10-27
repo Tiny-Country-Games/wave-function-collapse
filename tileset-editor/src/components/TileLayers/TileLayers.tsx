@@ -23,6 +23,7 @@ import {restrictToVerticalAxis} from "@dnd-kit/modifiers";
 type TileLayersProps = {
     layers: RowCol[];
     onChange: (layers: RowCol[]) => void;
+    onAddClick: () => void;
 };
 
 const rowColId = ({c, r}: RowCol) => `${r}-${c}`;
@@ -97,6 +98,7 @@ const TileLayers = (props: TileLayersProps) => {
     const {
         layers,
         onChange,
+        onAddClick,
     } = props;
 
     const sensors = useSensors(
@@ -130,6 +132,7 @@ const TileLayers = (props: TileLayersProps) => {
                         variant={'success'}
                         type={'button'}
                         className={'rounded-pill'}
+                        onClick={onAddClick}
                     >
                         <FontAwesomeIcon icon={faPlus} fixedWidth/>
                     </Button>

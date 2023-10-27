@@ -1,0 +1,16 @@
+$SelectedTileOutlineWidth: 3px;
+
+.TileCoordsSelectorTile {
+  image-rendering: pixelated;
+  cursor: pointer;
+}
+
+.SelectedTile {
+  outline: solid $SelectedTileOutlineWidth white;
+  outline-offset: -$SelectedTileOutlineWidth;
+}
+
+.TileCoordsSelectorTileNotAllowed {
+  opacity: 75%;
+  cursor: not-allowed;
+}
