@@ -1,13 +1,19 @@
 import React from "react";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {useAppSelector} from "../../hooks/redux";
 import {ListGroup, ListGroupItem} from "react-bootstrap";
 import TilePreview from "../TilePreview/TilePreview";
-import {rootStateActions} from "../../store/root";
 
-const TileSelector = () => {
+type TileSelectorProps = {
+    onSelect?: (tile: string) => void;
+};
+
+const TileSelector = (props: TileSelectorProps) => {
+    const {
+        onSelect,
+    } = props;
+
     const tileset = useAppSelector(state => state.root.tileset!);
     const selectedTile = useAppSelector(state => state.root.selectedTile);
-    const dispatch = useAppDispatch();
 
     const tiles = Object.keys(tileset.tiles);
 
@@ -17,9 +23,9 @@ const TileSelector = () => {
                 return (
                     <ListGroupItem
                         key={tile}
-                        onClick={() => dispatch(rootStateActions.setSelectedTile(tile))}
+                        onClick={() => onSelect?.(tile)}
                         active={tile === selectedTile}
-                        action
+                        action={!!onSelect}
                     >
                         <TilePreview
                             tile={tile}

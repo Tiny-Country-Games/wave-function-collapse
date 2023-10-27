@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {Button, Col, Row} from "react-bootstrap";
-import {useAppSelector} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import TileSelector from "../../components/TileSelector/TileSelector";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import NewTileModal from "../../containers/NewTileModal/NewTileModal";
+import {rootStateActions} from "../../store/root";
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -13,13 +14,14 @@ type LayoutProps = {
 const Layout = ({children}: LayoutProps) => {
     const tileData = useAppSelector(state => state.root.tileData);
     const tileset = useAppSelector(state => state.root.tileset);
+    const dispatch = useAppDispatch();
 
     const [showNewTileModal, setShowNewTileModal] = useState<boolean>(false);
 
     if (tileData === null || tileset === null) return null;
 
     return (
-        <Row className={'mt-3'}>
+        <Row className={'mt-3 mb-3'}>
             <Col xs={{span: 12, order: 2}} lg={{span: 3, order: 1}}>
                 <Row className={'mb-2 align-items-center justify-content-between'}>
                     <Col xs={'auto'}>
@@ -37,7 +39,9 @@ const Layout = ({children}: LayoutProps) => {
                         </Button>
                     </Col>
                 </Row>
-                <TileSelector/>
+                <TileSelector
+                    onSelect={tile => dispatch(rootStateActions.setSelectedTile(tile))}
+                />
             </Col>
             <Col xs={{span: 12, order: 1}} lg={{span: 9, order: 2}} className={'mb-2 mb-lg-0'}>
                 <Row>
