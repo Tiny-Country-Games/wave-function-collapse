@@ -5,26 +5,32 @@ import TilePreview from "../TilePreview/TilePreview";
 
 type TileSelectorProps = {
     onSelect?: (tile: string) => void;
+    tiles?: string[];
 };
 
 const TileSelector = (props: TileSelectorProps) => {
     const {
         onSelect,
+        tiles,
     } = props;
 
     const tileset = useAppSelector(state => state.root.tileset!);
     const selectedTile = useAppSelector(state => state.root.selectedTile);
 
-    const tiles = Object.keys(tileset.tiles);
+    const tileNames = (() => {
+        if (!tiles) return Object.keys(tileset.tiles);
+        const availableTiles = new Set<string>([...Object.keys(tileset.tiles)]);
+        return tiles.filter(tile => availableTiles.has(tile));
+    })();
 
     return (
         <ListGroup>
-            {tiles.map((tile) => {
+            {tileNames.map((tile) => {
                 return (
                     <ListGroupItem
                         key={tile}
                         onClick={() => onSelect?.(tile)}
-                        active={tile === selectedTile}
+                        active={!!onSelect && tile === selectedTile}
                         action={!!onSelect}
                     >
                         <TilePreview

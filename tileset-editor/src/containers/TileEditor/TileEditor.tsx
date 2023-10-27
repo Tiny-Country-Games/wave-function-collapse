@@ -6,6 +6,9 @@ import TileLayers from "../../components/TileLayers/TileLayers";
 import {rootStateActions} from "../../store/root";
 import TileSelectorModal from "../../components/TileSelectorModal/TileSelectorModal";
 import InputElement from "../../components/InputElement/InputElement";
+import NeighborDroppable from "../../components/NeighborDroppable/NeighborDroppable";
+import {DndContext, DragEndEvent} from "@dnd-kit/core";
+import TileDraggable from "../../components/TileDraggable/TileDraggable";
 
 const TileEditor = () => {
     const tileset = useAppSelector(state => state.root.tileset!)
@@ -29,6 +32,8 @@ const TileEditor = () => {
     const selectedTileData = tileset.tiles[selectedTile];
 
     if (!selectedTileData) return null;
+
+    const allTiles = [...new Set<string>([...Object.keys(tileset.tiles)])];
 
     const onTileLayersChange = (layers: RowCol[]) => {
         const updatedTileset = JSON.parse(JSON.stringify(tileset));
@@ -71,11 +76,39 @@ const TileEditor = () => {
         floatingLabel: true,
     };
 
+    const onDragEnd = ({active, over}: DragEndEvent) => {
+        if (!active || !over) return;
+        const draggedTileId = `${active.id}`;
+        const overId: string = `${over.id}`;
+        const updatedTileset: typeof tileset = JSON.parse(JSON.stringify(tileset));
+        switch (overId) {
+            case 'N':
+                updatedTileset.tiles[selectedTile].neighbors.north = [...new Set<string>([...updatedTileset.tiles[selectedTile].neighbors.north, draggedTileId])];
+                updatedTileset.tiles[draggedTileId].neighbors.south = [...new Set<string>([...updatedTileset.tiles[draggedTileId].neighbors.south, selectedTile])];
+                break;
+            case 'S':
+                updatedTileset.tiles[selectedTile].neighbors.south = [...new Set<string>([...updatedTileset.tiles[selectedTile].neighbors.south, draggedTileId])];
+                updatedTileset.tiles[draggedTileId].neighbors.north = [...new Set<string>([...updatedTileset.tiles[draggedTileId].neighbors.north, selectedTile])];
+                break;
+            case 'E':
+                updatedTileset.tiles[selectedTile].neighbors.east = [...new Set<string>([...updatedTileset.tiles[selectedTile].neighbors.east, draggedTileId])];
+                updatedTileset.tiles[draggedTileId].neighbors.west = [...new Set<string>([...updatedTileset.tiles[draggedTileId].neighbors.west, selectedTile])];
+                break;
+            case 'W':
+                updatedTileset.tiles[selectedTile].neighbors.west = [...new Set<string>([...updatedTileset.tiles[selectedTile].neighbors.west, draggedTileId])];
+                updatedTileset.tiles[draggedTileId].neighbors.east = [...new Set<string>([...updatedTileset.tiles[draggedTileId].neighbors.east, selectedTile])];
+                break;
+            default:
+                return;
+        }
+        dispatch(rootStateActions.setTileset(updatedTileset));
+    };
+
     return (
         <Col>
             <h1>{selectedTile}</h1>
             <Row>
-                <Col xs={12} lg={6} className={'mb-2'}>
+                <Col xs={12} lg={6} className={'mb-4'}>
                     <Card className={'h-100'}>
                         <Card.Body>
                             <Card.Title>Meta</Card.Title>
@@ -87,7 +120,7 @@ const TileEditor = () => {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col xs={12} lg={6} className={'mb-2'}>
+                <Col xs={12} lg={6} className={'mb-4'}>
                     <Card>
                         <Card.Body>
                             <Card.Title>Tile Renderer</Card.Title>
@@ -103,6 +136,68 @@ const TileEditor = () => {
                                     />
                                 </Col>
                             </Row>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={12}>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Neighbors</Card.Title>
+                            <DndContext onDragEnd={onDragEnd}>
+                                <Row>
+                                    <Col xs={3}>
+                                        <Card>
+                                            <Card.Body>
+                                                <Card.Title>Tiles</Card.Title>
+                                                <Row>
+                                                    <Col>
+                                                        {allTiles.map(tile => (
+                                                            <TileDraggable
+                                                                key={tile}
+                                                                tile={tile}
+                                                            />
+                                                        ))}
+                                                    </Col>
+                                                </Row>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                    <Col xs={9}>
+                                        <Row>
+                                            <Col xs={{span: 4, offset: 4}}>
+                                                <NeighborDroppable
+                                                    direction={'N'}
+                                                    tileData={selectedTileData}
+                                                />
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col xs={{span: 4}}>
+                                                <NeighborDroppable
+                                                    direction={'W'}
+                                                    tileData={selectedTileData}
+                                                />
+                                            </Col>
+                                            <Col xs={{span: 4, offset: 4}}>
+                                                <NeighborDroppable
+                                                    direction={'E'}
+                                                    tileData={selectedTileData}
+                                                />
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col xs={{span: 4, offset: 4}}>
+                                                <NeighborDroppable
+                                                    direction={'S'}
+                                                    tileData={selectedTileData}
+                                                />
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </DndContext>
                         </Card.Body>
                     </Card>
                 </Col>
