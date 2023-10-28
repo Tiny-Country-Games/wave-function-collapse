@@ -104,6 +104,31 @@ const TileEditor = () => {
         dispatch(rootStateActions.setTileset(updatedTileset));
     };
 
+    const onNeighborRemove = (direction: 'N' | 'S' | 'E' | 'W', removedTileId: string) => {
+        const updatedTileset: typeof tileset = JSON.parse(JSON.stringify(tileset));
+        switch (direction) {
+            case 'N':
+                updatedTileset.tiles[selectedTile].neighbors.north = updatedTileset.tiles[selectedTile].neighbors.north.filter(tile => tile !== removedTileId);
+                updatedTileset.tiles[removedTileId].neighbors.south = updatedTileset.tiles[removedTileId].neighbors.south.filter(tile => tile !== selectedTile);
+                break;
+            case 'S':
+                updatedTileset.tiles[selectedTile].neighbors.south = updatedTileset.tiles[selectedTile].neighbors.south.filter(tile => tile !== removedTileId);
+                updatedTileset.tiles[removedTileId].neighbors.north = updatedTileset.tiles[removedTileId].neighbors.north.filter(tile => tile !== selectedTile);
+                break;
+            case 'E':
+                updatedTileset.tiles[selectedTile].neighbors.east = updatedTileset.tiles[selectedTile].neighbors.east.filter(tile => tile !== removedTileId);
+                updatedTileset.tiles[removedTileId].neighbors.west = updatedTileset.tiles[removedTileId].neighbors.west.filter(tile => tile !== selectedTile);
+                break;
+            case 'W':
+                updatedTileset.tiles[selectedTile].neighbors.west = updatedTileset.tiles[selectedTile].neighbors.west.filter(tile => tile !== removedTileId);
+                updatedTileset.tiles[removedTileId].neighbors.east = updatedTileset.tiles[removedTileId].neighbors.east.filter(tile => tile !== selectedTile);
+                break;
+            default:
+                return;
+        }
+        dispatch(rootStateActions.setTileset(updatedTileset));
+    };
+
     return (
         <Col>
             <h1>{selectedTile}</h1>
@@ -170,6 +195,7 @@ const TileEditor = () => {
                                                 <NeighborDroppable
                                                     direction={'N'}
                                                     tileData={selectedTileData}
+                                                    onTileRemove={onNeighborRemove}
                                                 />
                                             </Col>
                                         </Row>
@@ -178,12 +204,14 @@ const TileEditor = () => {
                                                 <NeighborDroppable
                                                     direction={'W'}
                                                     tileData={selectedTileData}
+                                                    onTileRemove={onNeighborRemove}
                                                 />
                                             </Col>
                                             <Col xs={{span: 4, offset: 4}}>
                                                 <NeighborDroppable
                                                     direction={'E'}
                                                     tileData={selectedTileData}
+                                                    onTileRemove={onNeighborRemove}
                                                 />
                                             </Col>
                                         </Row>
@@ -192,6 +220,7 @@ const TileEditor = () => {
                                                 <NeighborDroppable
                                                     direction={'S'}
                                                     tileData={selectedTileData}
+                                                    onTileRemove={onNeighborRemove}
                                                 />
                                             </Col>
                                         </Row>

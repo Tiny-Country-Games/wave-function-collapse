@@ -10,6 +10,7 @@ type DirectionId = 'N' | 'S' | 'E' | 'W';
 type NeighborDroppableProps = {
     direction: DirectionId;
     tileData: Tile;
+    onTileRemove: (direction: DirectionId, tileToRemove: string) => void;
 };
 
 const NeighborDroppable = (props: NeighborDroppableProps) => {
@@ -17,6 +18,7 @@ const NeighborDroppable = (props: NeighborDroppableProps) => {
     const {
         direction,
         tileData,
+        onTileRemove,
     } = props;
 
     const {
@@ -70,6 +72,7 @@ const NeighborDroppable = (props: NeighborDroppableProps) => {
                                         type={'button'}
                                         variant={'danger'}
                                         className={'px-1 py-0 rounded-pill'}
+                                        onClick={() => onTileRemove(direction, tileName)}
                                     >
                                         <FontAwesomeIcon icon={faMinus} width={'0.75rem'}/>
                                     </Button>
