@@ -59,7 +59,7 @@ const NeighborDroppable = (props: NeighborDroppableProps) => {
             <Card.Body ref={setNodeRef}>
                 <Card.Title>{title}</Card.Title>
                 {tileNames.map(tileName => (
-                    <Card className={'mb-2'}>
+                    <Card className={'mb-2'} key={tileName}>
                         <Card.Body
                             className={'p-2'}
                         >
