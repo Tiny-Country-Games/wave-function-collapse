@@ -26,14 +26,19 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
 
     private boolean debug = false;
 
+    private final WaveFunctionCollapseLaunchParams params;
+
+    public WaveFunctionCollapse(WaveFunctionCollapseLaunchParams params) {
+        super();
+        this.params = params;
+    }
+
     @Override
     public void create() {
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
-        final int tilesWidth = 120;
-        final int tilesHeight = 67;
-        viewport = new FitViewport(16 * tilesWidth, 16 * tilesHeight);
-        algorithm = new WaveFunctionCollapseAlgorithm(tilesWidth, tilesHeight);
+        viewport = new FitViewport(params.tilesWidth * params.tileSizeWidth, params.tilesHeight * params.tileSizeHeight);
+        algorithm = new WaveFunctionCollapseAlgorithm(params.tilesWidth, params.tilesHeight, params.tilesetPath);
         this.stepMode = true;
         this.recorder = new Recorder();
     }

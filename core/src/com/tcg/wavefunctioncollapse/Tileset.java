@@ -1,6 +1,7 @@
 package com.tcg.wavefunctioncollapse;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -27,9 +28,13 @@ public class Tileset implements Disposable {
     public final int tileHeight;
 
     public Tileset(final String path) {
+        final FileHandle tilesetFile = Gdx.files.absolute(path);
+        if (!tilesetFile.exists()) {
+            throw new GdxRuntimeException("Tileset file does not exist: " + path);
+        }
         final String ymlText = Gdx.files.internal(Objects.requireNonNull(path)).readString();
         final TilesetDocument document = new Yaml(new Constructor(TilesetDocument.class, new LoaderOptions())).load(ymlText);
-        this.tilesetTexture = new Texture(Gdx.files.internal(document.source));
+        this.tilesetTexture = new Texture(tilesetFile.sibling(document.source));
         this.tileWidth = document.tileWidth;
         this.tileHeight = document.tileHeight;
         this.tilesetTileRegions = TextureRegion.split(tilesetTexture, document.tileWidth, document.tileHeight);
@@ -82,7 +87,7 @@ public class Tileset implements Disposable {
         tilesetTexture.dispose();
     }
 
-    private static class TilesetDocument {
+    public static class TilesetDocument {
         public String source;
         public int tileWidth;
         public int tileHeight;
