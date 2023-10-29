@@ -25,6 +25,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -42,6 +44,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -59,6 +63,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -76,6 +82,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_01:
     weight: 1
     draw:
@@ -99,6 +107,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -116,6 +126,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -133,6 +145,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -150,6 +164,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_02:
     weight: 1
     draw:
@@ -173,6 +189,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -190,6 +208,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -207,6 +227,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -224,6 +246,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_10:
     weight: 1
     draw:
@@ -247,6 +271,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -264,6 +290,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -281,6 +309,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -298,6 +328,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_11:
     weight: 1
     draw:
@@ -321,6 +353,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -338,6 +372,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -355,6 +391,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -372,6 +410,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_12:
     weight: 1
     draw:
@@ -395,6 +435,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -412,6 +454,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -429,6 +473,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -446,6 +492,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_20:
     weight: 1
     draw:
@@ -469,6 +517,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -486,6 +536,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -503,6 +555,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -520,6 +574,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_21:
     weight: 1
     draw:
@@ -543,6 +599,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -560,6 +618,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -577,6 +637,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -594,6 +656,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   grass_22:
     weight: 1
     draw:
@@ -617,6 +681,8 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_stair_s
+        - orange_village_se
+        - orange_village_sw
       south:
         - grass_00
         - grass_01
@@ -634,6 +700,8 @@ tiles:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
         - grass_ledge_stair_n
+        - orange_village_ne
+        - orange_village_nw
       east:
         - grass_00
         - grass_01
@@ -651,6 +719,8 @@ tiles:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_stair_w
+        - orange_village_sw
+        - orange_village_nw
       west:
         - grass_00
         - grass_01
@@ -668,6 +738,8 @@ tiles:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_stair_e
+        - orange_village_se
+        - orange_village_ne
   water_corner_nw:
     weight: 0.125
     draw:
@@ -1570,3 +1642,131 @@ tiles:
         - grass_ledge_edge_s
       west:
         - grass_ledge_edge_s
+  orange_village_nw:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 26
+        c: 12
+    neighbors:
+      north:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      south:
+        - orange_village_sw
+      east:
+        - orange_village_ne
+      west:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+  orange_village_ne:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 26
+        c: 13
+    neighbors:
+      north:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      south:
+        - orange_village_se
+      east:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      west:
+        - orange_village_nw
+  orange_village_sw:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 27
+        c: 12
+    neighbors:
+      north:
+        - orange_village_nw
+      south:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      east:
+        - orange_village_se
+      west:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+  orange_village_se:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 27
+        c: 13
+    neighbors:
+      north:
+        - orange_village_ne
+      south:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      east:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      west:
+        - orange_village_sw
