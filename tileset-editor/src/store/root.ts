@@ -22,6 +22,10 @@ export const rootSlice = createSlice({
         clearTileData: (state) => {
             state.tileData = null;
         },
+        clearAllData: (state) => {
+            state.tileset = null;
+            state.tileData = null;
+        },
         setTileset: (state, action: PayloadAction<TileSet>) => {
             state.tileset = JSON.parse(JSON.stringify(action.payload));
         },
