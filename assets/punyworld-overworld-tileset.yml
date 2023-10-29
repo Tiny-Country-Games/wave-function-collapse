@@ -24,6 +24,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -40,6 +41,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -56,6 +58,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -72,6 +75,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_01:
     weight: 1
     draw:
@@ -94,6 +98,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -110,6 +115,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -126,6 +132,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -142,6 +149,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_02:
     weight: 1
     draw:
@@ -164,6 +172,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -180,6 +189,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -196,6 +206,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -212,6 +223,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_10:
     weight: 1
     draw:
@@ -234,6 +246,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -250,6 +263,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -266,6 +280,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -282,6 +297,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_11:
     weight: 1
     draw:
@@ -304,6 +320,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -320,6 +337,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -336,6 +354,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -352,6 +371,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_12:
     weight: 1
     draw:
@@ -374,6 +394,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -390,6 +411,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -406,6 +428,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -422,6 +445,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_20:
     weight: 1
     draw:
@@ -444,6 +468,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -460,6 +485,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -476,6 +502,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -492,6 +519,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_21:
     weight: 1
     draw:
@@ -514,6 +542,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -530,6 +559,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -546,6 +576,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -562,6 +593,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   grass_22:
     weight: 1
     draw:
@@ -584,6 +616,7 @@ tiles:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_corner_se
+        - grass_ledge_stair_s
       south:
         - grass_00
         - grass_01
@@ -600,6 +633,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       east:
         - grass_00
         - grass_01
@@ -616,6 +650,7 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
+        - grass_ledge_stair_w
       west:
         - grass_00
         - grass_01
@@ -632,6 +667,7 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_corner_se
+        - grass_ledge_stair_e
   water_corner_nw:
     weight: 0.125
     draw:
@@ -1098,16 +1134,16 @@ tiles:
         - water_edge_s
         - water_corner_se
       south:
-        - grass_ledge_internal_corner_sw
-        - grass_ledge_internal_corner_se
         - grass_ledge_center
       east:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
+        - grass_ledge_stair_n
       west:
         - grass_ledge_corner_nw
         - grass_ledge_edge_n
         - grass_ledge_internal_corner_ne
+        - grass_ledge_stair_n
   grass_ledge_corner_ne:
     weight: 0.125
     draw:
@@ -1162,15 +1198,15 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
         - grass_ledge_internal_corner_sw
+        - grass_ledge_stair_w
       south:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
         - grass_ledge_internal_corner_nw
+        - grass_ledge_stair_w
       east:
         - grass_ledge_edge_e
         - grass_ledge_internal_corner_nw
-        - grass_ledge_internal_corner_ne
-        - grass_ledge_internal_corner_se
         - grass_ledge_center
       west:
         - grass_00
@@ -1197,10 +1233,12 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
         - grass_ledge_internal_corner_se
+        - grass_ledge_stair_e
       south:
         - grass_ledge_edge_e
         - grass_ledge_corner_se
         - grass_ledge_internal_corner_ne
+        - grass_ledge_stair_e
       east:
         - grass_00
         - grass_01
@@ -1216,7 +1254,6 @@ tiles:
         - water_corner_sw
       west:
         - grass_ledge_edge_w
-        - grass_ledge_internal_corner_sw
         - grass_ledge_center
   grass_ledge_corner_sw:
     weight: 0.125
@@ -1269,8 +1306,6 @@ tiles:
         c: 12
     neighbors:
       north:
-        - grass_ledge_internal_corner_nw
-        - grass_ledge_internal_corner_ne
         - grass_ledge_center
       south:
         - grass_00
@@ -1289,10 +1324,12 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
         - grass_ledge_internal_corner_sw
+        - grass_ledge_stair_s
       west:
         - grass_ledge_corner_sw
         - grass_ledge_edge_s
         - grass_ledge_internal_corner_se
+        - grass_ledge_stair_s
   grass_ledge_corner_se:
     weight: 0.125
     draw:
@@ -1347,12 +1384,8 @@ tiles:
         - grass_ledge_corner_nw
         - grass_ledge_edge_w
       south:
-        - grass_ledge_edge_s
-        - grass_ledge_internal_corner_sw
-        - grass_ledge_internal_corner_se
         - grass_ledge_center
       east:
-        - grass_ledge_internal_corner_se
         - grass_ledge_center
       west:
         - grass_ledge_corner_nw
@@ -1369,16 +1402,11 @@ tiles:
         - grass_ledge_corner_ne
         - grass_ledge_edge_e
       south:
-        - grass_ledge_edge_s
-        - grass_ledge_internal_corner_sw
-        - grass_ledge_internal_corner_se
         - grass_ledge_center
       east:
         - grass_ledge_edge_n
         - grass_ledge_corner_ne
       west:
-        - grass_ledge_edge_w
-        - grass_ledge_internal_corner_sw
         - grass_ledge_center
   grass_ledge_internal_corner_sw:
     weight: 0.125
@@ -1389,17 +1417,11 @@ tiles:
         c: 14
     neighbors:
       north:
-        - grass_ledge_edge_n
-        - grass_ledge_internal_corner_nw
-        - grass_ledge_internal_corner_ne
         - grass_ledge_center
       south:
         - grass_ledge_edge_w
         - grass_ledge_corner_sw
       east:
-        - grass_ledge_edge_e
-        - grass_ledge_internal_corner_ne
-        - grass_ledge_internal_corner_se
         - grass_ledge_center
       west:
         - grass_ledge_corner_sw
@@ -1413,9 +1435,6 @@ tiles:
         c: 15
     neighbors:
       north:
-        - grass_ledge_edge_n
-        - grass_ledge_internal_corner_nw
-        - grass_ledge_internal_corner_ne
         - grass_ledge_center
       south:
         - grass_ledge_edge_e
@@ -1424,12 +1443,9 @@ tiles:
         - grass_ledge_edge_s
         - grass_ledge_corner_se
       west:
-        - grass_ledge_edge_w
-        - grass_ledge_internal_corner_nw
-        - grass_ledge_internal_corner_sw
         - grass_ledge_center
   grass_ledge_center:
-    weight: 0.5
+    weight: 1
     draw:
       - r: 5
         c: 1
@@ -1439,18 +1455,118 @@ tiles:
         - grass_ledge_internal_corner_nw
         - grass_ledge_internal_corner_ne
         - grass_ledge_center
+        - grass_ledge_stair_n
       south:
         - grass_ledge_edge_s
         - grass_ledge_internal_corner_sw
         - grass_ledge_internal_corner_se
         - grass_ledge_center
+        - grass_ledge_stair_s
       east:
         - grass_ledge_edge_e
         - grass_ledge_internal_corner_ne
         - grass_ledge_internal_corner_se
         - grass_ledge_center
+        - grass_ledge_stair_e
       west:
         - grass_ledge_edge_w
-        - grass_ledge_internal_corner_nw
         - grass_ledge_internal_corner_sw
         - grass_ledge_center
+        - grass_ledge_internal_corner_nw
+        - grass_ledge_stair_w
+  grass_ledge_stair_n:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 4
+        c: 17
+    neighbors:
+      north:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      south:
+        - grass_ledge_center
+      east:
+        - grass_ledge_edge_n
+      west:
+        - grass_ledge_edge_n
+  grass_ledge_stair_w:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 5
+        c: 16
+    neighbors:
+      north:
+        - grass_ledge_edge_w
+      south:
+        - grass_ledge_edge_w
+      east:
+        - grass_ledge_center
+      west:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+  grass_ledge_stair_e:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 5
+        c: 18
+    neighbors:
+      north:
+        - grass_ledge_edge_e
+      south:
+        - grass_ledge_edge_e
+      east:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      west:
+        - grass_ledge_center
+  grass_ledge_stair_s:
+    weight: 0.0625
+    draw:
+      - r: 0
+        c: 0
+      - r: 6
+        c: 17
+    neighbors:
+      north:
+        - grass_ledge_center
+      south:
+        - grass_00
+        - grass_01
+        - grass_02
+        - grass_10
+        - grass_11
+        - grass_12
+        - grass_20
+        - grass_21
+        - grass_22
+      east:
+        - grass_ledge_edge_s
+      west:
+        - grass_ledge_edge_s
