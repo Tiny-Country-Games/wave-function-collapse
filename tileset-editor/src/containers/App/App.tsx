@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {useAppSelector} from "../../hooks/redux";
 import CreateTilesetRoutes from "../../routers/CreateTilesetRoutes/CreateTilesetRoutes";
 import MainRoutes from "../../routers/MainRoutes/MainRoutes";
+import Header from "../../components/Header/Header";
 
 const App = () => {
     const tileData = useAppSelector(state => state.root.tileData);
@@ -14,13 +15,16 @@ const App = () => {
     })();
 
     return (
-        <Container fluid>
-            <Row>
-                <Col>
-                    {router}
-                </Col>
-            </Row>
-        </Container>
+        <>
+            <Header/>
+            <Container fluid>
+                <Row>
+                    <Col>
+                        {router}
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 };
 

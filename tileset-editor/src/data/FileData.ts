@@ -30,10 +30,10 @@ export namespace FileData {
         return FileData.cleanTileset(parsedObject);
     };
 
-    export const saveTileset = async (tileset: TileSet) => {
+    export const saveTileset = (tileset: TileSet) => {
         const tilesetFile = YAML.stringify(FileData.cleanTileset(tileset));
         const blob = new Blob([tilesetFile], {type: 'text/yaml;charset=utf-8'});
-        saveAs(blob, 'tileset.yaml');
+        saveAs(blob, `${tileset.source.replaceAll(/^(.*)\..+$/g, '$1')}.yml`);
     }
 
     export const cleanTileset = (tileset: TileSet): TileSet => {
