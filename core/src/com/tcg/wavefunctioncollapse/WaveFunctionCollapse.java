@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -13,6 +14,7 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
 
     private Viewport viewport;
     private SpriteBatch batch;
+    private ShapeRenderer shapeRenderer;
 
     private WaveFunctionCollapseAlgorithm algorithm;
 
@@ -22,9 +24,12 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
 
     private Recorder recorder;
 
+    private boolean debug = false;
+
     @Override
     public void create() {
         batch = new SpriteBatch();
+        shapeRenderer = new ShapeRenderer();
         final int tilesWidth = 120;
         final int tilesHeight = 67;
         viewport = new FitViewport(16 * tilesWidth, 16 * tilesHeight);
@@ -70,6 +75,10 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
             }
         }
 
+        if (Gdx.input.isKeyJustPressed(Input.Keys.F1)) {
+            this.debug = !this.debug;
+        }
+
         Gdx.graphics.setTitle("Wave Function Collapse - Iterations per step: " + this.iterationsPerStep + (this.recorder.isRecording() ? " - Recording" : ""));
 
         batch.begin();
@@ -77,6 +86,14 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
         algorithm.draw(batch);
         batch.end();
         recorder.record();
+
+        if (this.debug) {
+            shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+            shapeRenderer.setProjectionMatrix(viewport.getCamera().combined);
+            algorithm.debug(shapeRenderer);
+            shapeRenderer.end();
+        }
+
     }
 
     @Override
@@ -87,6 +104,7 @@ public class WaveFunctionCollapse extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
+        shapeRenderer.dispose();
         algorithm.dispose();
     }
 }

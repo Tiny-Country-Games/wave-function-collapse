@@ -2,6 +2,7 @@ package com.tcg.wavefunctioncollapse;
 
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Disposable;
 
 public class WaveFunctionCollapseAlgorithm implements Disposable {
@@ -25,6 +26,10 @@ public class WaveFunctionCollapseAlgorithm implements Disposable {
 
     public void draw(final SpriteBatch batch) {
         world.draw(batch);
+    }
+
+    public void debug(final ShapeRenderer shapeRenderer) {
+        world.debug(shapeRenderer);
     }
 
     @Override
