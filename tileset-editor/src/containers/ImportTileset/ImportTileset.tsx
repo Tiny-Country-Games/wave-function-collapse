@@ -1,13 +1,12 @@
 import {Alert, Button, Col, Image, Modal, Row} from "react-bootstrap";
 import ReadPlainTextFileButton from "../../components/ReadPlainTextFileButton/ReadPlainTextFileButton";
 import React, {useRef, useState} from "react";
-import YAML from 'yaml';
-import tilesetSchema from '../../data/tileset-schema.json';
-import {Draft07} from "json-schema-library";
 import SpriteSheet from "../../data/SpriteSheet";
 import {useAppDispatch} from "../../hooks/redux";
 import {rootStateActions} from "../../store/root";
 import {LinkContainer} from "react-router-bootstrap";
+import {FileData} from "../../data/FileData";
+import ValidationErrorList = FileData.ValidationErrorList;
 
 
 const ImportTileset = () => {
@@ -27,38 +26,16 @@ const ImportTileset = () => {
         setIsReading(true);
         setErrorList([]);
         try {
-            const parsedObject = YAML.parse(fileContent);
-            const schema = new Draft07(tilesetSchema);
-            const validationErrors = schema.validate(parsedObject);
-            if (validationErrors.length > 0) {
-                setErrorList(validationErrors.map(e => e.message));
-                return;
-            }
-            const tileset = parsedObject as TileSet;
-            const tileNames = new Set<string>([...Object.keys(tileset.tiles)]);
-            const validatedTileset: TileSet = {
-                ...tileset,
-                tiles: Object.keys(tileset.tiles).reduce((tiles, tileName) => {
-                    const tile = tileset.tiles[tileName];
-                    if (!tile) return {...tiles};
-                    return {
-                        ...tiles,
-                        [tileName]: {
-                            ...tile,
-                            neighbors: {
-                                north: tile.neighbors.north.filter(n => tileNames.has(n)),
-                                south: tile.neighbors.south.filter(n => tileNames.has(n)),
-                                east: tile.neighbors.east.filter(n => tileNames.has(n)),
-                                west: tile.neighbors.west.filter(n => tileNames.has(n)),
-                            }
-                        },
-                    };
-                }, {} as Record<string, Tile>)
-            };
+            const validatedTileset = FileData.parseTileset(fileContent);
             setLoadedTileset(validatedTileset);
             imageSelectRef.current.click();
         } catch (e: any) {
             console.error(e);
+            if ((e as ValidationErrorList).isValidationErrorList) {
+                const eList = e as ValidationErrorList;
+                setErrorList(eList.errorMessages);
+                return;
+            }
             setErrorList([e.message]);
         } finally {
             setIsReading(false);
