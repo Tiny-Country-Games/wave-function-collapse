@@ -52,13 +52,10 @@ public class World {
 
     public void debug(final ShapeRenderer shapeRenderer) {
         final int lowestEntropy = getLowestEntropy();
+        final int highestEntropy = getHighestEntropy();
         for (final Tile[] row : tiles) {
             for (final Tile tile : row) {
-                if (tile.entropy() == lowestEntropy) {
-                    tile.debugDraw(shapeRenderer, Color.GREEN);
-                } else if (tile.isDeadlocked()) {
-                    tile.debugDraw(shapeRenderer, Color.RED);
-                } else if (tile.isSet()) {
+                if (tile.isSet()) {
                     boolean isEdge = false;
                     for (final Direction direction : tile.getDirections()) {
                         final Tile neighbor = tile.getNeighbor(direction);
@@ -69,7 +66,12 @@ public class World {
                     }
                     if (isEdge) tile.debugDraw(shapeRenderer, Color.YELLOW);
                 } else {
-                    tile.debugDraw(shapeRenderer, Color.GREEN.cpy().lerp(Color.BLUE.cpy(), 1f - ((float) lowestEntropy / tile.entropy())));
+                    if (tile.isDeadlocked()) {
+                        tile.debugDraw(shapeRenderer, Color.RED);
+                    } else {
+                        float percent = ((float) tile.entropy() - lowestEntropy) / (highestEntropy - lowestEntropy);
+                        tile.debugDraw(shapeRenderer, Color.GREEN.cpy().lerp(Color.BLUE.cpy(), percent));
+                    }
                 }
             }
         }
@@ -84,6 +86,17 @@ public class World {
             }
         }
         return lowestEntropy;
+    }
+
+    private int getHighestEntropy() {
+        int highestEntropy = Integer.MIN_VALUE;
+        for (final Tile[] row : tiles) {
+            for (final Tile tile : row) {
+                final int entropy = tile.entropy();
+                if (entropy > 0) highestEntropy = Math.max(highestEntropy, entropy);
+            }
+        }
+        return highestEntropy;
     }
 
     public List<Tile> getTilesLowestEntropy() {
